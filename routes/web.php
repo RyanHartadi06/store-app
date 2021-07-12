@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,5 +37,6 @@ Route::get('/dashboard/account', 'DashboardSettingController@account')->name('da
 // ->middleware(['auth','admin'])
 Route::prefix('admin')->namespace('Admin')->group(function () {
     Route::get('/', 'DashboardController@index')->name('admin-dashboard');
+    Route::resource('category', 'CategoryController');
 });
 Auth::routes();
